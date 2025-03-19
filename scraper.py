@@ -11,27 +11,55 @@ from selenium.webdriver.support import expected_conditions as EC
 from webdriver_manager.chrome import ChromeDriverManager
 from docx import Document
 from docx.shared import Inches
-import math
 from docx.oxml import OxmlElement
+from selenium.common.exceptions import WebDriverException
 
 
 IMAGE_NOT_DOWNLOAD = "https://images.ctfassets.net/1eftmbczj7w9/4lxJsZKPeDdqvWh9imZdNL/ac51d64ed9eab0cb6075423af8f2cc44/VPLOGO.jpg"
 IMAGES_DIR = "images_download"
 os.makedirs(IMAGES_DIR, exist_ok=True)
 
-# **初始化 WebDriver**
-def init_driver():
+# # **初始化 WebDriver**
+# def init_driver():
+#     options = Options()
+#     options.add_argument("--headless")  # 无头模式
+#     options.add_argument("--disable-gpu")
+#     options.add_argument("--no-sandbox")
+#     service = Service(ChromeDriverManager().install())
+#     driver = webdriver.Chrome(service=service, options=options)
+#     return driver
+
+# 初始化 WebDriver
+def init_driver(retries=3, delay=5):
     options = Options()
     options.add_argument("--headless")  # 无头模式
     options.add_argument("--disable-gpu")
     options.add_argument("--no-sandbox")
-    service = Service(ChromeDriverManager().install())
-    driver = webdriver.Chrome(service=service, options=options)
-    return driver
+    
+    for attempt in range(retries):
+        try:
+            # 启动 WebDriver
+            service = Service(ChromeDriverManager().install())
+            driver = webdriver.Chrome(service=service, options=options)
+            return driver  # 如果成功，返回 driver 实例
+        except WebDriverException as e:
+            print(f"🚨 WebDriver 初始化失败，尝试重新连接 ({attempt + 1}/{retries})... 错误: {e}")
+            time.sleep(delay)  # 等待一定时间后重试
+    raise Exception("❌ WebDriver 初始化失败，已尝试多次。")
+
+
+
 
 # **抓取 ICBC 题目**
 def scrape_questions(step3):
-    driver = init_driver()
+    # 使用示例
+    try:
+        driver = init_driver()
+        print("✅ WebDriver 启动成功！")
+    except Exception as e:
+        print(e)
+        return
+
     wait = WebDriverWait(driver, 10)
     question_data = []  # 存储所有题目
 
