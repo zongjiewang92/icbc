@@ -1,4 +1,5 @@
 import os
+from datetime import datetime
 from docx import Document
 from docx.shared import Inches, Pt
 from docx.oxml import OxmlElement
@@ -12,6 +13,10 @@ def save_to_word(question_data, filename="ICBC_题库.docx"):
     """先存无图片题目，再存有图片题目，每页不固定题目数量"""
     document = Document()
     document.add_heading("ICBC 题库", level=1)
+    # 获取当前时间
+    current_time = datetime.now().strftime("%Y-%m-%d")  # 格式化时间
+    # 添加当前时间
+    document.add_heading(f"更新时间: {current_time} , 题库有效时间2个月", level=2)
 
     # **分离无图片和有图片的题目**
     no_image_questions = [q for q in question_data if not q["image"]]
