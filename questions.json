@@ -1,0 +1,1083 @@
+[
+    {
+        "question": "此路标表示：",
+        "options": [
+            {
+                "letter": "A",
+                "text": "前方有高度较低的立交桥"
+            },
+            {
+                "letter": "B",
+                "text": "前方有铁路平交道"
+            },
+            {
+                "letter": "C",
+                "text": "前方有隐蔽的交叉路口或旁路"
+            },
+            {
+                "letter": "D",
+                "text": "前路不通；请向右转或向左转"
+            }
+        ],
+        "image": "images_download\\V061.jpg",
+        "correct_answer": "C"
+    },
+    {
+        "question": "车辆A驾驶者应该：",
+        "options": [
+            {
+                "letter": "A",
+                "text": "停车，直至卡车转弯为止"
+            },
+            {
+                "letter": "B",
+                "text": "保持速度，但脚踩在煞车上"
+            },
+            {
+                "letter": "C",
+                "text": "减速，并观察卡车的摆动幅度是否很大"
+            },
+            {
+                "letter": "D",
+                "text": "鸣喇叭，藉以让卡车驾驶者知道自己在这里"
+            }
+        ],
+        "image": "images_download\\V024.jpg",
+        "correct_answer": "C"
+    },
+    {
+        "question": "下列哪一项最不可能是驾驶者受到酒精影响的征兆？",
+        "options": [
+            {
+                "letter": "A",
+                "text": "失去周边视觉。"
+            },
+            {
+                "letter": "B",
+                "text": "反应时间比平时更快。"
+            },
+            {
+                "letter": "C",
+                "text": "容易盯着一个地方看。"
+            },
+            {
+                "letter": "D",
+                "text": "失去深度知觉。"
+            }
+        ],
+        "image": "",
+        "correct_answer": "B"
+    },
+    {
+        "question": "何时发生水滑现象的风险较高：",
+        "options": [
+            {
+                "letter": "A",
+                "text": "在使用雪地轮胎时"
+            },
+            {
+                "letter": "B",
+                "text": "当轮胎磨损，而且胎面几乎磨平时"
+            },
+            {
+                "letter": "C",
+                "text": "当车辆处于陡坡上时"
+            },
+            {
+                "letter": "D",
+                "text": "当车辆很重时"
+            }
+        ],
+        "image": "",
+        "correct_answer": "B"
+    },
+    {
+        "question": "当校车停车，并且红灯闪烁时，您必须：",
+        "options": [
+            {
+                "letter": "A",
+                "text": "留心儿童，并准备停车"
+            },
+            {
+                "letter": "B",
+                "text": "停车，并等候红灯停止闪烁"
+            },
+            {
+                "letter": "C",
+                "text": "减速，并准备停车"
+            },
+            {
+                "letter": "D",
+                "text": "停车，留心察看儿童，并继续行驶"
+            }
+        ],
+        "image": "",
+        "correct_answer": "B"
+    },
+    {
+        "question": "设法在双车道上避免撞车时，下列哪一种做法最不安全？",
+        "options": [
+            {
+                "letter": "A",
+                "text": "减速，并靠右行驶。"
+            },
+            {
+                "letter": "B",
+                "text": "驶入左车道。"
+            },
+            {
+                "letter": "C",
+                "text": "尽量踩紧煞车，但不要锁定。"
+            },
+            {
+                "letter": "D",
+                "text": "将脚从油门上松开。"
+            }
+        ],
+        "image": "",
+        "correct_answer": "B"
+    },
+    {
+        "question": "在撞车时，采取下列哪种措施能更有效地避免发生重伤的可能性：",
+        "options": [
+            {
+                "letter": "A",
+                "text": "握紧方向盘"
+            },
+            {
+                "letter": "B",
+                "text": "佩戴下腰安全带和肩部安全带"
+            },
+            {
+                "letter": "C",
+                "text": "佩戴下腰安全带"
+            },
+            {
+                "letter": "D",
+                "text": "被抛出车外"
+            }
+        ],
+        "image": "",
+        "correct_answer": "B"
+    },
+    {
+        "question": "持续亮着的绿色箭头表示：",
+        "options": [
+            {
+                "letter": "A",
+                "text": "在车辆完全停住之后，您可按箭头所示方向转弯"
+            },
+            {
+                "letter": "B",
+                "text": "如果交叉路口畅通，您可按箭头所示方向转弯"
+            },
+            {
+                "letter": "C",
+                "text": "您仅可在此交叉路口向左转"
+            },
+            {
+                "letter": "D",
+                "text": "横向街道是箭头所示方向的单行街道"
+            }
+        ],
+        "image": "images_download\\V075.jpg",
+        "correct_answer": "B"
+    },
+    {
+        "question": "当您按低于限速的速度行驶，并且您后面有很多车时，为了避免受到攻击，您应该：",
+        "options": [
+            {
+                "letter": "A",
+                "text": "减速，并打讯号灯让车流通过"
+            },
+            {
+                "letter": "B",
+                "text": "驶向右侧，并在路肩上行驶"
+            },
+            {
+                "letter": "C",
+                "text": "驶到路边停车，并让车流通过"
+            },
+            {
+                "letter": "D",
+                "text": "保持您的速度"
+            }
+        ],
+        "image": "",
+        "correct_answer": "C"
+    },
+    {
+        "question": "如果驾驶者在门前车道上倒车时无法看清情况，他应该：",
+        "options": [
+            {
+                "letter": "A",
+                "text": "仔细察看，然后缓慢倒出"
+            },
+            {
+                "letter": "B",
+                "text": "继续倒车，同时打亮警示灯"
+            },
+            {
+                "letter": "C",
+                "text": "在倒车时高声鸣喇叭"
+            },
+            {
+                "letter": "D",
+                "text": "察看观察镜，并继续倒车"
+            }
+        ],
+        "image": "",
+        "correct_answer": "A"
+    },
+    {
+        "question": "在何种情况不允许回转：",
+        "options": [
+            {
+                "letter": "A",
+                "text": "在居民区内"
+            },
+            {
+                "letter": "B",
+                "text": "在没有路标或交通讯号灯的交叉路口"
+            },
+            {
+                "letter": "C",
+                "text": "在停车场内"
+            },
+            {
+                "letter": "D",
+                "text": "在视线受限的弯道或山顶上"
+            }
+        ],
+        "image": "images_download\\V058.jpg",
+        "correct_answer": "D"
+    },
+    {
+        "question": "哪辆车在公路上的正确空间充裕度（无逃生路线）最小？",
+        "options": [
+            {
+                "letter": "A",
+                "text": "轿车A。"
+            },
+            {
+                "letter": "B",
+                "text": "轿车B。"
+            },
+            {
+                "letter": "C",
+                "text": "轿车D。"
+            },
+            {
+                "letter": "D",
+                "text": "轿车C。"
+            }
+        ],
+        "image": "images_download\\V023.jpg",
+        "correct_answer": "B"
+    },
+    {
+        "question": "为何应该特别当心摩托车？",
+        "options": [
+            {
+                "letter": "A",
+                "text": "巡警通常驾驶摩托车。"
+            },
+            {
+                "letter": "B",
+                "text": "摩托车始终有先行权。"
+            },
+            {
+                "letter": "C",
+                "text": "摩托车比轿车小，难以让人看到。"
+            },
+            {
+                "letter": "D",
+                "text": "摩托车的速度通常比轿车快。"
+            }
+        ],
+        "image": "",
+        "correct_answer": "C"
+    },
+    {
+        "question": "车辆A驾驶者需要密切注意的情况是什么？",
+        "options": [
+            {
+                "letter": "A",
+                "text": "迎面而来的车辆。"
+            },
+            {
+                "letter": "B",
+                "text": "他后面的车辆。"
+            },
+            {
+                "letter": "C",
+                "text": "人行横道内的行人。"
+            },
+            {
+                "letter": "D",
+                "text": "道路上的球，因为后面可能有儿童跟随。"
+            }
+        ],
+        "image": "images_download\\V011.jpg",
+        "correct_answer": "D"
+    },
+    {
+        "question": "这辆卡车停车的原因可能是什么？",
+        "options": [
+            {
+                "letter": "A",
+                "text": "卡车即将转弯。"
+            },
+            {
+                "letter": "B",
+                "text": "行人已步入人行横道。"
+            },
+            {
+                "letter": "C",
+                "text": "卡车驾驶者迷路了，正在看地图。"
+            },
+            {
+                "letter": "D",
+                "text": "卡车驾驶者即将泊车。"
+            }
+        ],
+        "image": "images_download\\V013.jpg",
+        "correct_answer": "B"
+    },
+    {
+        "question": "下列哪一项能帮助您在饮酒之后清醒？",
+        "options": [
+            {
+                "letter": "A",
+                "text": "新鲜空气。"
+            },
+            {
+                "letter": "B",
+                "text": "咖啡。"
+            },
+            {
+                "letter": "C",
+                "text": "大声播放音乐。"
+            },
+            {
+                "letter": "D",
+                "text": "时间。"
+            }
+        ],
+        "image": "",
+        "correct_answer": "D"
+    },
+    {
+        "question": "闪烁的红灯表示：",
+        "options": [
+            {
+                "letter": "A",
+                "text": "停车，并且在安全时才能继续前行"
+            },
+            {
+                "letter": "B",
+                "text": "停车，交通灯由行人控制"
+            },
+            {
+                "letter": "C",
+                "text": "停车，并且仅在向右转时才能继续行驶"
+            },
+            {
+                "letter": "D",
+                "text": "停车，并等待绿灯"
+            }
+        ],
+        "image": "images_download\\V073.jpg",
+        "correct_answer": "A"
+    },
+    {
+        "question": "如果交叉路口的交通灯失灵，您应该：",
+        "options": [
+            {
+                "letter": "A",
+                "text": "当另一个驾驶者向您挥手示意时，开始行驶"
+            },
+            {
+                "letter": "B",
+                "text": "等待交通控制员前来指挥交通"
+            },
+            {
+                "letter": "C",
+                "text": "将该交叉路口当作一个四方都设有停车路标的路口"
+            },
+            {
+                "letter": "D",
+                "text": "驶到有空隙的地方"
+            }
+        ],
+        "image": "",
+        "correct_answer": "C"
+    },
+    {
+        "question": "当有人在您后面跟随且跟车距离过近时，保护您自身的最佳方法是：",
+        "options": [
+            {
+                "letter": "A",
+                "text": "迅速煞车，然后重新加速"
+            },
+            {
+                "letter": "B",
+                "text": "鸣喇叭，并闪烁煞车灯"
+            },
+            {
+                "letter": "C",
+                "text": "留出更多的车后空间"
+            },
+            {
+                "letter": "D",
+                "text": "逐渐增加车前距离"
+            }
+        ],
+        "image": "",
+        "correct_answer": "D"
+    },
+    {
+        "question": "成为一名负责任的驾驶者意味着：",
+        "options": [
+            {
+                "letter": "A",
+                "text": "当其他驾驶者出现错误时，告诉他们"
+            },
+            {
+                "letter": "B",
+                "text": "保障乘客和您本人的安全"
+            },
+            {
+                "letter": "C",
+                "text": "考虑路上所有人的安全"
+            },
+            {
+                "letter": "D",
+                "text": "确保您获得路上其他人的尊重"
+            }
+        ],
+        "image": "",
+        "correct_answer": "C"
+    },
+    {
+        "question": "若想减轻撞车造成的冲击，您应该：",
+        "options": [
+            {
+                "letter": "A",
+                "text": "设法迎面撞到其它车辆，而非以一定角度撞到其它车辆"
+            },
+            {
+                "letter": "B",
+                "text": "猛踩煞车，并驶入路沟中"
+            },
+            {
+                "letter": "C",
+                "text": "减速，并驶向一些柔软的物体，例如灌木或雪堆等"
+            },
+            {
+                "letter": "D",
+                "text": "保持车速，并驶入路沟中"
+            }
+        ],
+        "image": "",
+        "correct_answer": "C"
+    },
+    {
+        "question": "标明限速系指所允许的最高车速，且适用于：",
+        "options": [
+            {
+                "letter": "A",
+                "text": "在白天驾驶"
+            },
+            {
+                "letter": "B",
+                "text": "在能见度很低的状况下驾驶"
+            },
+            {
+                "letter": "C",
+                "text": "超车时除外"
+            },
+            {
+                "letter": "D",
+                "text": "在理想状况下驾驶"
+            }
+        ],
+        "image": "",
+        "correct_answer": "D"
+    },
+    {
+        "question": "当您的车辆开始打滑时，最正确的反应是：",
+        "options": [
+            {
+                "letter": "A",
+                "text": "松开油门，并朝着与自己想行驶方向相反的方向转动方向盘"
+            },
+            {
+                "letter": "B",
+                "text": "朝与打滑方向相反的方向转动方向盘"
+            },
+            {
+                "letter": "C",
+                "text": "煞车，并朝打滑方向转动方向盘"
+            },
+            {
+                "letter": "D",
+                "text": "松开油门，朝自己想行驶的方向转动方向盘"
+            }
+        ],
+        "image": "",
+        "correct_answer": "D"
+    },
+    {
+        "question": "在倒车过程中，驾驶者应该：",
+        "options": [
+            {
+                "letter": "A",
+                "text": "察看后视镜"
+            },
+            {
+                "letter": "B",
+                "text": "察看双侧的侧视镜"
+            },
+            {
+                "letter": "C",
+                "text": "回头透过后车窗察看"
+            },
+            {
+                "letter": "D",
+                "text": "察看所有观察镜"
+            }
+        ],
+        "image": "",
+        "correct_answer": "C"
+    },
+    {
+        "question": "车辆A驾驶者即将向左转。他的视线在哪个地方受到限制，并会导致危险？",
+        "options": [
+            {
+                "letter": "A",
+                "text": "他的盲点。"
+            },
+            {
+                "letter": "B",
+                "text": "卡车的后面和侧面。"
+            },
+            {
+                "letter": "C",
+                "text": "他后面紧随的车辆。"
+            },
+            {
+                "letter": "D",
+                "text": "他后面的右车道。"
+            }
+        ],
+        "image": "images_download\\V001.jpg",
+        "correct_answer": "B"
+    },
+    {
+        "question": "这位骑自行车者将要做什么？",
+        "options": [
+            {
+                "letter": "A",
+                "text": "左转。"
+            },
+            {
+                "letter": "B",
+                "text": "停车或减速。"
+            },
+            {
+                "letter": "C",
+                "text": "让您通过。"
+            },
+            {
+                "letter": "D",
+                "text": "右转。"
+            }
+        ],
+        "image": "images_download\\V020.jpg",
+        "correct_answer": "D"
+    },
+    {
+        "question": "转向讯号灯应该：",
+        "options": [
+            {
+                "letter": "A",
+                "text": "在转弯前一个街区处打亮"
+            },
+            {
+                "letter": "B",
+                "text": "在每次变换车道时使用"
+            },
+            {
+                "letter": "C",
+                "text": "仅在转过拐角时使用"
+            },
+            {
+                "letter": "D",
+                "text": "仅在交通繁忙时使用"
+            }
+        ],
+        "image": "",
+        "correct_answer": "B"
+    },
+    {
+        "question": "在没有标明限速的地方，最高速度是：",
+        "options": [
+            {
+                "letter": "A",
+                "text": "在城镇地区为50公里/小时，在其它地方为80公里/小时"
+            },
+            {
+                "letter": "B",
+                "text": "在城镇地区为60公里/小时，在其它地方为90公里/小时"
+            },
+            {
+                "letter": "C",
+                "text": "在城镇地区为50公里/小时，在其它地方为90公里/小时"
+            },
+            {
+                "letter": "D",
+                "text": "在城镇地区为60公里/小时，在其它地方为80公里/小时"
+            }
+        ],
+        "image": "",
+        "correct_answer": "A"
+    },
+    {
+        "question": "闪烁的绿色箭头加 持续亮着的红灯表示：",
+        "options": [
+            {
+                "letter": "A",
+                "text": "在任何时候都禁止向左转"
+            },
+            {
+                "letter": "B",
+                "text": "在向左转之前等待红灯变为绿灯"
+            },
+            {
+                "letter": "C",
+                "text": "向左转"
+            },
+            {
+                "letter": "D",
+                "text": "横向街道是箭头所示方向的单行街道"
+            }
+        ],
+        "image": "images_download\\V078.jpg",
+        "correct_answer": "C"
+    },
+    {
+        "question": "在撞车之后，您不应该做下列哪些事情？",
+        "options": [
+            {
+                "letter": "A",
+                "text": "绘制现场草图，并注明时间、地点和天气。"
+            },
+            {
+                "letter": "B",
+                "text": "记下见证人的姓名和地址。"
+            },
+            {
+                "letter": "C",
+                "text": "将车辆移出道路。"
+            },
+            {
+                "letter": "D",
+                "text": "争论事故是谁的过错。"
+            }
+        ],
+        "image": "",
+        "correct_answer": "D"
+    },
+    {
+        "question": "在哪种情况下不应该超车：",
+        "options": [
+            {
+                "letter": "A",
+                "text": "在出现松软路肩的警告路标时"
+            },
+            {
+                "letter": "B",
+                "text": "当被超的车辆正在减速时"
+            },
+            {
+                "letter": "C",
+                "text": "在弯道上"
+            },
+            {
+                "letter": "D",
+                "text": "当虚线在您这一侧时"
+            }
+        ],
+        "image": "",
+        "correct_answer": "C"
+    },
+    {
+        "question": "在开车遇到红灯停下来时你是否被允许拿着手机看文本或听语音邮件？",
+        "options": [
+            {
+                "letter": "A",
+                "text": "不可以。在驾驶过程的任何时候，你都不可以拿着一件手持装置操作，这包括在遇到红灯停下来时。"
+            },
+            {
+                "letter": "B",
+                "text": "可以，但只限于在刚亮红灯时。"
+            },
+            {
+                "letter": "C",
+                "text": "你可以快速阅读手机上的文本。"
+            },
+            {
+                "letter": "D",
+                "text": "你可以拿着手机听语音邮件。"
+            }
+        ],
+        "image": "",
+        "correct_answer": "A"
+    },
+    {
+        "question": "下列哪一项是正确的？",
+        "options": [
+            {
+                "letter": "A",
+                "text": "咖啡可以减轻酒精的影响。"
+            },
+            {
+                "letter": "B",
+                "text": "只有时间才会减轻酒精的影响。"
+            },
+            {
+                "letter": "C",
+                "text": "如果在饮酒时吃得很饱，酒精对您的影响会减弱。"
+            },
+            {
+                "letter": "D",
+                "text": "啤酒对您的影响没有其它饮料那样明显。"
+            }
+        ],
+        "image": "",
+        "correct_answer": "B"
+    },
+    {
+        "question": "当您跟随在一辆摩托车后面时，您应该：",
+        "options": [
+            {
+                "letter": "A",
+                "text": "脚踩在煞车上"
+            },
+            {
+                "letter": "B",
+                "text": "保持速度，并始终靠右行驶"
+            },
+            {
+                "letter": "C",
+                "text": "慢速行驶"
+            },
+            {
+                "letter": "D",
+                "text": "留出较大的跟车距离"
+            }
+        ],
+        "image": "",
+        "correct_answer": "D"
+    },
+    {
+        "question": "当一辆车在双车道道路上超越您的车辆时，您应该：",
+        "options": [
+            {
+                "letter": "A",
+                "text": "加速，并靠右行驶"
+            },
+            {
+                "letter": "B",
+                "text": "准备减速，并留出空间"
+            },
+            {
+                "letter": "C",
+                "text": "始终保持车速以及您在车道内的位置"
+            },
+            {
+                "letter": "D",
+                "text": "保持速度，并始终靠右行驶"
+            }
+        ],
+        "image": "",
+        "correct_answer": "B"
+    },
+    {
+        "question": "骑自行车者有权：",
+        "options": [
+            {
+                "letter": "A",
+                "text": "如果道路右侧不安全，则有权在车道中央骑行"
+            },
+            {
+                "letter": "B",
+                "text": "随意在车道的任何位置骑行"
+            },
+            {
+                "letter": "C",
+                "text": "不遵守交通规则"
+            },
+            {
+                "letter": "D",
+                "text": "在人行横道内骑自行车"
+            }
+        ],
+        "image": "",
+        "correct_answer": "A"
+    },
+    {
+        "question": "有一辆车在车辆E驾驶者的盲点内。请问是哪辆车？",
+        "options": [
+            {
+                "letter": "A",
+                "text": "轿车A。"
+            },
+            {
+                "letter": "B",
+                "text": "轿车B。"
+            },
+            {
+                "letter": "C",
+                "text": "轿车C。"
+            },
+            {
+                "letter": "D",
+                "text": "轿车D。"
+            }
+        ],
+        "image": "images_download\\V004.jpg",
+        "correct_answer": "B"
+    },
+    {
+        "question": "车辆A驾驶者：",
+        "options": [
+            {
+                "letter": "A",
+                "text": "必须减速，并准备停车"
+            },
+            {
+                "letter": "B",
+                "text": "必须停车，招手示意行人穿越道路"
+            },
+            {
+                "letter": "C",
+                "text": "应该鸣喇叭，并保持车速"
+            },
+            {
+                "letter": "D",
+                "text": "必须停车，并让行人穿越道路"
+            }
+        ],
+        "image": "images_download\\V037.jpg",
+        "correct_answer": "A"
+    },
+    {
+        "question": "紧急煞车的要点是：",
+        "options": [
+            {
+                "letter": "A",
+                "text": "尽量猛踩煞车"
+            },
+            {
+                "letter": "B",
+                "text": "煞车时用力向右转方向盘"
+            },
+            {
+                "letter": "C",
+                "text": "煞车时用力向左转方向盘"
+            },
+            {
+                "letter": "D",
+                "text": "尽快停车，不要锁定煞车"
+            }
+        ],
+        "image": "",
+        "correct_answer": "D"
+    },
+    {
+        "question": "此路标表示何时应减速至30公里/小时：",
+        "options": [
+            {
+                "letter": "A",
+                "text": "上课日从黎明至黄昏"
+            },
+            {
+                "letter": "B",
+                "text": "每天从黎明至黄昏"
+            },
+            {
+                "letter": "C",
+                "text": "上课日早上8点至下午5点"
+            },
+            {
+                "letter": "D",
+                "text": "当道路附近有儿童时"
+            }
+        ],
+        "image": "images_download\\V066.jpg",
+        "correct_answer": "B"
+    },
+    {
+        "question": "您在何时必须使用前灯：",
+        "options": [
+            {
+                "letter": "A",
+                "text": "从黎明至黄昏"
+            },
+            {
+                "letter": "B",
+                "text": "从日落后30分钟起，直到日出前30分钟止"
+            },
+            {
+                "letter": "C",
+                "text": "当您认为天够黑的时候"
+            },
+            {
+                "letter": "D",
+                "text": "从早上5:00点至晚上10:00点"
+            }
+        ],
+        "image": "",
+        "correct_answer": "B"
+    },
+    {
+        "question": "这幅图中的中央车道：",
+        "options": [
+            {
+                "letter": "A",
+                "text": "可用于从任一方向向左转"
+            },
+            {
+                "letter": "B",
+                "text": "不应在此车道内行驶"
+            },
+            {
+                "letter": "C",
+                "text": "表示前方转弯"
+            },
+            {
+                "letter": "D",
+                "text": "可用作普通行车道"
+            }
+        ],
+        "image": "images_download\\V039.jpg",
+        "correct_answer": "A"
+    },
+    {
+        "question": "闪烁的黄色交通灯表示：",
+        "options": [
+            {
+                "letter": "A",
+                "text": "停车，并等待交通灯转为绿色"
+            },
+            {
+                "letter": "B",
+                "text": "停车，并在道路畅通时继续行驶"
+            },
+            {
+                "letter": "C",
+                "text": "交通灯即将转为红色"
+            },
+            {
+                "letter": "D",
+                "text": "减速，并准备停车"
+            }
+        ],
+        "image": "images_download\\V076.jpg",
+        "correct_answer": "D"
+    },
+    {
+        "question": "闪烁的绿灯表示：",
+        "options": [
+            {
+                "letter": "A",
+                "text": "交通灯即将变为红色"
+            },
+            {
+                "letter": "B",
+                "text": "您可以在交通灯下的车道内行驶"
+            },
+            {
+                "letter": "C",
+                "text": "交通讯号由行人控制"
+            },
+            {
+                "letter": "D",
+                "text": "对面的车流正面临红灯"
+            }
+        ],
+        "image": "images_download\\V074.jpg",
+        "correct_answer": "C"
+    },
+    {
+        "question": "交通控制员发出的指示：",
+        "options": [
+            {
+                "letter": "A",
+                "text": "在所有情况下都必须遵循"
+            },
+            {
+                "letter": "B",
+                "text": "在公共道路上不应遵循"
+            },
+            {
+                "letter": "C",
+                "text": "不得超越例行的交通规则"
+            },
+            {
+                "letter": "D",
+                "text": "仅在这些指示不与交通规则相抵触时，才须遵循"
+            }
+        ],
+        "image": "",
+        "correct_answer": "A"
+    },
+    {
+        "question": "持续亮着的绿灯表示：",
+        "options": [
+            {
+                "letter": "A",
+                "text": "如果交叉路口畅通，您可以继续行驶"
+            },
+            {
+                "letter": "B",
+                "text": "您可以驶入此车道"
+            },
+            {
+                "letter": "C",
+                "text": "可在此交叉路口转弯"
+            },
+            {
+                "letter": "D",
+                "text": "减速，并继续小心行驶"
+            }
+        ],
+        "image": "images_download\\V071.jpg",
+        "correct_answer": "A"
+    },
+    {
+        "question": "您在何时必须遵守该限速？",
+        "options": [
+            {
+                "letter": "A",
+                "text": "在全部时间内。"
+            },
+            {
+                "letter": "B",
+                "text": "正常上课日早上8点至下午5点。"
+            },
+            {
+                "letter": "C",
+                "text": "每天早上8点至下午5点。"
+            },
+            {
+                "letter": "D",
+                "text": "正常上课日的全部时间内。"
+            }
+        ],
+        "image": "images_download\\V054.jpg",
+        "correct_answer": "B"
+    }
+]
