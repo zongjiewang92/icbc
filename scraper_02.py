@@ -202,8 +202,13 @@ def scrape_questions(step3, max_questions=25):
                 driver.find_element(By.XPATH, "//button[@value='A']//img[contains(@src, 'icon-checkmark.svg')]")
                 correct_answer = "A"
             except:
-                # **如果 A 错误，查找正确答案的选项字母**
-                correct_answer = driver.find_element(By.XPATH, "//button[contains(@class, 'border-[#3adda2]')]//div[contains(@class, 'h-7') and contains(@class, 'w-7')]").text.strip()
+                try:
+                    # **如果 A 错误，查找正确答案的选项字母**
+                    correct_answer = driver.find_element(By.XPATH, "//button[contains(@class, 'border-[#3adda2]')]//div[contains(@class, 'h-7') and contains(@class, 'w-7')]").text.strip()
+                except:
+                    print("❌ A 错误，同时没找到正确答案:", e)
+                    break
+
             print(f"✅ 正确答案: {correct_answer}")
 
             # **存储题目、图片、答案**
