@@ -16,9 +16,12 @@ SCREENSHOT_DIR = "screenshots"
 os.makedirs(SCREENSHOT_DIR, exist_ok=True)
 
 def take_screenshot(driver, name="screenshot"):
-    """截图并保存"""
-    timestamp = time.strftime("%Y%m%d-%H%M%S")
-    filename = os.path.join(SCREENSHOT_DIR, f"{name}_{timestamp}.png")
-    driver.save_screenshot(filename)
-    print(f"📸 截图已保存: {filename}")
 
+    try:
+        """截图并保存"""
+        timestamp = time.strftime("%Y%m%d-%H%M%S")
+        filename = os.path.join(SCREENSHOT_DIR, f"{name}_{timestamp}.png")
+        driver.save_screenshot(filename)
+        print(f"📸 截图已保存: {filename}")
+    except Exception as screenshot_error:
+        print(f"❌ 截图失败: {screenshot_error}")

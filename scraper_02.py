@@ -74,7 +74,10 @@ def scrape_questions(step3, max_questions=25):
     except Exception as e:
         print("❌ Step1:语言选择失败:", e)
         take_screenshot(driver, "step1_error")  # 发生异常时截图
-        driver.quit()
+        try:
+            driver.quit()
+        except Exception as quit_error:
+            print(f"❌ Driver quit 失败: {quit_error}")
 
     # **Step 2: 点击 "笔试练习"**
     try:
@@ -88,7 +91,10 @@ def scrape_questions(step3, max_questions=25):
     except Exception as e:
         print("❌ Step2:进入笔试练习失败:", e)
         take_screenshot(driver, "step2_error")  # 发生异常时截图
-        driver.quit()
+        try:
+            driver.quit()
+        except Exception as quit_error:
+            print(f"❌ Driver quit 失败: {quit_error}")
 
     # **Step 3: 点击 "完整测试"**
     if step3:
@@ -215,7 +221,7 @@ def scrape_questions(step3, max_questions=25):
                 )
                 next_button.click()
                 time.sleep(0.5)
-                print(f"✅ 下一个问题: {correct_answer}")
+                print(f"✅ 下一个问题")
             except:
                 print("✅ 测试结束，无 '下一个问题' 按钮")
                 # 尝试查找 "完成" 按钮
@@ -230,12 +236,19 @@ def scrape_questions(step3, max_questions=25):
         except Exception as e:
             print("❌ 题目元素 抓取失败:", e)
             take_screenshot(driver, "question_error")  # 发生异常时截图
-            break  # 退出循环
-        finally:
-            if driver:
+            try:
                 driver.quit()
+            except Exception as quit_error:
+                print(f"❌ Driver quit 失败: {quit_error}")
 
-    driver.quit()
+            return question_data  # 返回抓取的数据
+        
+    if driver:
+        try:
+            driver.quit()
+        except Exception as quit_error:
+            print(f"❌ Driver quit 失败: {quit_error}")
+
     # print(f"✅ 问题内容: {question_data}")
     return question_data  # 返回抓取的数据
 

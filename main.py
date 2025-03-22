@@ -63,6 +63,20 @@ if __name__ == "__main__":
             all_questions.extend(new_questions)  # 合并题目
             all_questions = remove_duplicates(all_questions)  # 去重
             print(f"✅ 当前总题目数: {len(all_questions)}")
+            
+            # 存储抓取到的题目为 JSON 文件
+            if all_questions:
+                save_to_json(all_questions)  # 保存到 JSON 文件
+            else:
+                print("❌ 没有获取到任何题目")
+                
+            # 继续处理题目，保存到 Word
+            if all_questions:
+                print(f"✅ 全部抓取完成，共 {len(all_questions)} 道题目")
+                save_to_word(all_questions)  # 保存到 Word
+            else:
+                print("❌ 没有获取到任何题目")
+
         else:
             print(f"⚠️ 第 {i+1} 次抓取失败，跳过")
 
@@ -76,19 +90,33 @@ if __name__ == "__main__":
             all_questions.extend(new_questions)  # 合并题目
             all_questions = remove_duplicates(all_questions)  # 去重
             print(f"✅ 当前总题目数: {len(all_questions)}")
+
+            # 存储抓取到的题目为 JSON 文件
+            if all_questions:
+                save_to_json(all_questions)  # 保存到 JSON 文件
+            else:
+                print("❌ 没有获取到任何题目")
+
+            # 继续处理题目，保存到 Word
+            if all_questions:
+                print(f"✅ 全部抓取完成，共 {len(all_questions)} 道题目")
+                save_to_word(all_questions)  # 保存到 Word
+            else:
+                print("❌ 没有获取到任何题目")
+
         else:
             print(f"⚠️ 第 {i+1} 次抓取失败，跳过")
     
 
-    # 存储抓取到的题目为 JSON 文件
-    if all_questions:
-        save_to_json(all_questions)  # 保存到 JSON 文件
-    else:
-        print("❌ 没有获取到任何题目")
+    # # 存储抓取到的题目为 JSON 文件
+    # if all_questions:
+    #     save_to_json(all_questions)  # 保存到 JSON 文件
+    # else:
+    #     print("❌ 没有获取到任何题目")
 
-    # 继续处理题目，保存到 Word
-    if all_questions:
-        print(f"✅ 全部抓取完成，共 {len(all_questions)} 道题目")
-        save_to_word(all_questions)  # 保存到 Word
-    else:
-        print("❌ 没有获取到任何题目")
+    # # 继续处理题目，保存到 Word
+    # if all_questions:
+    #     print(f"✅ 全部抓取完成，共 {len(all_questions)} 道题目")
+    #     save_to_word(all_questions)  # 保存到 Word
+    # else:
+    #     print("❌ 没有获取到任何题目")
