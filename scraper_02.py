@@ -205,7 +205,7 @@ def scrape_questions(step3, max_questions=25):
                 try:
                     # **如果 A 错误，查找正确答案的选项字母**
                     correct_answer = driver.find_element(By.XPATH, "//button[contains(@class, 'border-[#3adda2]')]//div[contains(@class, 'h-7') and contains(@class, 'w-7')]").text.strip()
-                except:
+                except Exception as e:
                     print("❌ A 错误，同时没找到正确答案:", e)
                     break
 
