@@ -55,7 +55,7 @@ def release_driver(driver, service):
 
 
 # **抓取 ICBC 题目**
-def scrape_questions(step3, max_questions=25):
+def scrape_questions(step3, question_set, max_questions=25):
     # 使用示例
     try:
         driver, service = init_driver()
@@ -174,6 +174,7 @@ def scrape_questions(step3, max_questions=25):
                 take_screenshot(driver, "image_error")  # 发生异常时截图
                 break
 
+
             # **抓取选项**
             options_data = []
             option_buttons = driver.find_elements(By.TAG_NAME, "button")  # 找到所有按钮
@@ -204,29 +205,33 @@ def scrape_questions(step3, max_questions=25):
             print("✅ 点击 提交答案")
             time.sleep(0.5)
 
-            # **获取正确答案**
-            try:
-                # **查找 "正确" 标志，判断 A 是否正确**
-                driver.find_element(By.XPATH, "//button[@value='A']//img[contains(@src, 'icon-checkmark.svg')]")
-                correct_answer = "A"
-            except:
+            now_question = question_text + "_" + image_url
+            if now_question in question_set:
+                print(f"✅ 题目已经存在， 跳过{now_question}")
+            else:
+                # **获取正确答案**
                 try:
-                    # **如果 A 错误，查找正确答案的选项字母**
-                    correct_answer = driver.find_element(By.XPATH, "//button[contains(@class, 'border-[#3adda2]')]//div[contains(@class, 'h-7') and contains(@class, 'w-7')]").text.strip()
-                except Exception as e:
-                    print("❌ A 错误，同时没找到正确答案:", e)
-                    take_screenshot(driver, "question_error")  # 发生异常时截图
-                    break
+                    # **查找 "正确" 标志，判断 A 是否正确**
+                    driver.find_element(By.XPATH, "//button[@value='A']//img[contains(@src, 'icon-checkmark.svg')]")
+                    correct_answer = "A"
+                except:
+                    try:
+                        # **如果 A 错误，查找正确答案的选项字母**
+                        correct_answer = driver.find_element(By.XPATH, "//button[contains(@class, 'border-[#3adda2]')]//div[contains(@class, 'h-7') and contains(@class, 'w-7')]").text.strip()
+                    except Exception as e:
+                        print("❌ A 错误，同时没找到正确答案:", e)
+                        take_screenshot(driver, "question_error")  # 发生异常时截图
+                        break
 
-            print(f"✅ 正确答案: {correct_answer}")
+                print(f"✅ 正确答案: {correct_answer}")
 
-            # **存储题目、图片、答案**
-            question_data.append({
-                "question": question_text,
-                "options": options_data,
-                "image": image_url,
-                "correct_answer": correct_answer
-            })
+                # **存储题目、图片、答案**
+                question_data.append({
+                    "question": question_text,
+                    "options": options_data,
+                    "image": image_url,
+                    "correct_answer": correct_answer
+                })
 
             # **点击 "下一个问题"**
             try:
