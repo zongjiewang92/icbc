@@ -207,7 +207,7 @@ def scrape_questions(step3, question_set, max_questions=25):
 
             now_question = question_text + "_" + image_url
             if now_question in question_set:
-                print(f"✅ 题目已经存在， 跳过题目：{now_question}")
+                print(f"✅ 题目已经存在，不抓取答案， 跳过题目：{now_question}")
             else:
                 # **获取正确答案**
                 try:
