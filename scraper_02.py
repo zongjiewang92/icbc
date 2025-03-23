@@ -209,6 +209,7 @@ def scrape_questions(step3, question_set, max_questions=25):
             if now_question in question_set:
                 print(f"✅ 题目已经存在，不抓取答案， 跳过题目：{now_question}")
             else:
+                print(f"✅ 题目不存在，取答案")
                 take_screenshot(driver, "question", 2)
                 # **获取正确答案**
                 try:
