@@ -32,11 +32,25 @@ def init_driver(retries=3, delay=5):
         try:
             service = Service(ChromeDriverManager().install())  # 启动 service
             driver = webdriver.Chrome(service=service, options=options)  # 初始化 driver
-            return driver  # 成功时返回 driver 实例
+            return driver, service  # 成功时返回 driver 实例
         except WebDriverException as e:
             print(f"🚨 WebDriver 初始化失败，尝试重试 ({attempt + 1}/{retries})... 错误: {e}")
             time.sleep(delay)
     raise Exception("❌ WebDriver 初始化失败，已尝试多次。")
+
+def release_driver(driver, service):
+    try:
+        if driver:
+            driver.quit()
+            print(f"✅ Driver quit")
+    except Exception as quit_error:
+        print(f"❌ Driver quit 失败: {quit_error}")
+    try:
+        if service:
+            service.stop()
+            print(f"✅ Service close")
+    except Exception as quit_error:
+        print(f"❌ Service close 失败: {quit_error}")
 
 
 
@@ -44,7 +58,7 @@ def init_driver(retries=3, delay=5):
 def scrape_questions(step3, max_questions=25):
     # 使用示例
     try:
-        driver = init_driver()
+        driver, service = init_driver()
         print("✅ WebDriver 启动成功！")
     except Exception as e:
         print(e)
@@ -74,10 +88,7 @@ def scrape_questions(step3, max_questions=25):
     except Exception as e:
         print("❌ Step1:语言选择失败:", e)
         take_screenshot(driver, "step1_error")  # 发生异常时截图
-        try:
-            driver.quit()
-        except Exception as quit_error:
-            print(f"❌ Driver quit 失败: {quit_error}")
+        release_driver(driver, service)
 
     # **Step 2: 点击 "笔试练习"**
     try:
@@ -91,10 +102,7 @@ def scrape_questions(step3, max_questions=25):
     except Exception as e:
         print("❌ Step2:进入笔试练习失败:", e)
         take_screenshot(driver, "step2_error")  # 发生异常时截图
-        try:
-            driver.quit()
-        except Exception as quit_error:
-            print(f"❌ Driver quit 失败: {quit_error}")
+        release_driver(driver, service)
 
     # **Step 3: 点击 "完整测试"**
     if step3:
@@ -109,7 +117,7 @@ def scrape_questions(step3, max_questions=25):
         except Exception as e:
             print("❌ Step3:进入完整测试失败:", e)
             take_screenshot(driver, "step3_error")  # 发生异常时截图
-            driver.quit()
+            release_driver(driver, service)
     else:
         try:
             full_test_button = wait.until(
@@ -122,7 +130,7 @@ def scrape_questions(step3, max_questions=25):
         except Exception as e:
             print("❌ Step3:进入标志测试失败:", e)
             take_screenshot(driver, "step3_error")  # 发生异常时截图
-            driver.quit()
+            release_driver(driver, service)
 
     # **Step 4: 开始抓取测试题**
     question_data = []  # 存储所有题目信息
@@ -242,18 +250,11 @@ def scrape_questions(step3, max_questions=25):
         except Exception as e:
             print("❌ 题目元素 抓取失败:", e)
             take_screenshot(driver, "question_error")  # 发生异常时截图
-            try:
-                driver.quit()
-            except Exception as quit_error:
-                print(f"❌ Driver quit 失败: {quit_error}")
+            release_driver(driver, service)
 
             return question_data  # 返回抓取的数据
         
-    if driver:
-        try:
-            driver.quit()
-        except Exception as quit_error:
-            print(f"❌ Driver quit 失败: {quit_error}")
+    release_driver(driver, service)
 
     # print(f"✅ 问题内容: {question_data}")
     return question_data  # 返回抓取的数据

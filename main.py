@@ -2,6 +2,7 @@
 from scraper_02 import scrape_questions
 from save_to_file import save_to_word
 import json
+import gc
 
 
 def remove_duplicates(questions):
@@ -54,35 +55,35 @@ if __name__ == "__main__":
     # 如果存在已经保存的 JSON 文件，可以选择读取文件中的题目
     all_questions = load_from_json()  # 尝试从 JSON 文件加载题目
 
-    # 进行抓取  完整测试
-    for i in range(5):  # 控制抓取次数，可以根据需要调整
-        print(f"🔄 第 {i+1} 次抓取..完整测试...")
-        new_questions = scrape_questions(True)
+    # # 进行抓取  完整测试
+    # for i in range(5):  # 控制抓取次数，可以根据需要调整
+    #     print(f"🔄 第 {i+1} 次抓取..完整测试...")
+    #     new_questions = scrape_questions(True)
 
-        if new_questions:
-            all_questions.extend(new_questions)  # 合并题目
-            all_questions = remove_duplicates(all_questions)  # 去重
-            print(f"✅ 当前总题目数: {len(all_questions)}")
+    #     if new_questions:
+    #         all_questions.extend(new_questions)  # 合并题目
+    #         all_questions = remove_duplicates(all_questions)  # 去重
+    #         print(f"✅ 当前总题目数: {len(all_questions)}")
             
-            # 存储抓取到的题目为 JSON 文件
-            if all_questions:
-                save_to_json(all_questions)  # 保存到 JSON 文件
-            else:
-                print("❌ 没有获取到任何题目")
+    #         # 存储抓取到的题目为 JSON 文件
+    #         if all_questions:
+    #             save_to_json(all_questions)  # 保存到 JSON 文件
+    #         else:
+    #             print("❌ 没有获取到任何题目")
                 
-            # 继续处理题目，保存到 Word
-            if all_questions:
-                print(f"✅ 全部抓取完成，共 {len(all_questions)} 道题目")
-                save_to_word(all_questions)  # 保存到 Word
-            else:
-                print("❌ 没有获取到任何题目")
+    #         # 继续处理题目，保存到 Word
+    #         if all_questions:
+    #             print(f"✅ 全部抓取完成，共 {len(all_questions)} 道题目")
+    #             save_to_word(all_questions)  # 保存到 Word
+    #         else:
+    #             print("❌ 没有获取到任何题目")
 
-        else:
-            print(f"⚠️ 第 {i+1} 次抓取失败，跳过")
+    #     else:
+    #         print(f"⚠️ 第 {i+1} 次抓取失败，跳过")
 
 
     # 进行抓取  标志测试
-    for i in range(5):  # 控制抓取次数，可以根据需要调整
+    for i in range(4):  # 控制抓取次数，可以根据需要调整
         print(f"🔄 第 {i+1} 次抓取..标志测试...")
         new_questions = scrape_questions(False)
 
@@ -103,6 +104,7 @@ if __name__ == "__main__":
                 save_to_word(all_questions)  # 保存到 Word
             else:
                 print("❌ 没有获取到任何题目")
+
 
         else:
             print(f"⚠️ 第 {i+1} 次抓取失败，跳过")
