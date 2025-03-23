@@ -10,9 +10,9 @@ def remove_duplicates(questions):
     seen_questions = set()
 
     for question in questions:
-        question_text = question["question"]
-        if question_text not in seen_questions:
-            seen_questions.add(question_text)
+        question_text_image = question["question"] + "_" + question["image"]
+        if question_text_image not in seen_questions:
+            seen_questions.add(question_text_image)
             unique_questions.append(question)
 
     return unique_questions
