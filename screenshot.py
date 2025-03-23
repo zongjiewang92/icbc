@@ -12,7 +12,7 @@ from selenium.common.exceptions import WebDriverException
 
 
 # 创建截图目录
-SCREENSHOT_DIR_ERROR = "screenshots"
+SCREENSHOT_DIR_ERROR = "screenshots_error"
 os.makedirs(SCREENSHOT_DIR_ERROR, exist_ok=True)
 
 # 创建截图目录

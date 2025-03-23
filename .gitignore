@@ -1,5 +1,6 @@
 ICBC_题库.docx
 questions.json
 images_download/
-screenshots/
+screenshots_error/
+screenshots_question/
 __pycache__/
