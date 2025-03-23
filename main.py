@@ -82,19 +82,11 @@ if __name__ == "__main__":
             question_set = get_question_set(all_questions)
             print(f"✅ 当前总题目数: {len(all_questions)}")
 
-            
-            # 存储抓取到的题目为 JSON 文件
-            if all_questions:
-                save_to_json(all_questions)  # 保存到 JSON 文件
-            else:
-                print("❌ 没有获取到任何题目")
-                
             # 继续处理题目，保存到 Word
-            if all_questions:
-                print(f"✅ 全部抓取完成，共 {len(all_questions)} 道题目")
-                save_to_word(all_questions)  # 保存到 Word
-            else:
-                print("❌ 没有获取到任何题目")
+            print(f"✅ 全部抓取完成，共 {len(all_questions)} 道题目")
+            save_to_word(all_questions)  # 保存到 Word
+            # 存储抓取到的题目为 JSON 文件
+            save_to_json(all_questions)  # 保存到 JSON 文件
 
         else:
             print(f"⚠️ 第 {i+1} 次抓取 没有新题目，跳过")
@@ -111,19 +103,11 @@ if __name__ == "__main__":
             question_set = get_question_set(all_questions)
             print(f"✅ 当前总题目数: {len(all_questions)}")
 
-            # 存储抓取到的题目为 JSON 文件
-            if all_questions:
-                save_to_json(all_questions)  # 保存到 JSON 文件
-            else:
-                print("❌ 没有获取到任何题目")
-
             # 继续处理题目，保存到 Word
-            if all_questions:
-                print(f"✅ 全部抓取完成，共 {len(all_questions)} 道题目")
-                save_to_word(all_questions)  # 保存到 Word
-            else:
-                print("❌ 没有获取到任何题目")
-
+            print(f"✅ 全部抓取完成，共 {len(all_questions)} 道题目")
+            save_to_word(all_questions)  # 保存到 Word
+            # 存储抓取到的题目为 JSON 文件
+            save_to_json(all_questions)  # 保存到 JSON 文件
 
         else:
             print(f"⚠️ 第 {i+1} 次抓取 没有新题目，跳过")
