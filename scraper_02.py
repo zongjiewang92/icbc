@@ -244,14 +244,20 @@ def scrape_questions(step3, question_set, max_questions=25):
                 time.sleep(0.5)
                 print(f"✅ 下一个问题")
             except:
-                print("✅ 测试结束，无 '下一个问题' 按钮")
-                # 尝试查找 "完成" 按钮
-                buttons = driver.find_elements(By.XPATH, "//button[contains(text(), '完成')]")
-                if buttons:
-                    buttons[0].click()  # 找到按钮则点击
-                    time.sleep(0.5)
-                    print(f"✅ 完成")
-                break
+                try:
+                    print("✅ 测试结束，无 '下一个问题' 按钮")
+                    # 尝试查找 "完成" 按钮
+                    buttons = driver.find_elements(By.XPATH, "//button[contains(text(), '完成')]")
+                    if buttons:
+                        buttons[0].click()  # 找到按钮则点击
+                        time.sleep(0.5)
+                        print(f"✅ 完成")
+                    break
+                except Exception as e:
+                    print(f"❌ 没有找到  完成 按钮:", e)
+                    take_screenshot(driver, "question_next_error")
+                    break
+
 
             # break  # 退出循环
         except Exception as e:
