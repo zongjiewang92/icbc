@@ -141,7 +141,7 @@ def scrape_questions(step3, question_set, max_questions=25):
             question_text = wait.until(
                 EC.presence_of_element_located((By.XPATH, "//p[contains(@class, 'mb-2') and contains(@class, 'font-headings') and contains(@class, 'text-[18px]') and contains(@class, 'font-bold')]"))
             ).text
-            print(f"📌 题目: {question_text}")
+            print(f"\n📌 题目: {question_text}")
 
             # **抓取图片**
             image_url = ""
