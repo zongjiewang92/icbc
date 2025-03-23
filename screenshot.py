@@ -12,12 +12,20 @@ from selenium.common.exceptions import WebDriverException
 
 
 # 创建截图目录
-SCREENSHOT_DIR = "screenshots"
-os.makedirs(SCREENSHOT_DIR, exist_ok=True)
+SCREENSHOT_DIR_ERROR = "screenshots"
+os.makedirs(SCREENSHOT_DIR_ERROR, exist_ok=True)
 
-def take_screenshot(driver, name="screenshot"):
+# 创建截图目录
+SCREENSHOT_DIR_Q = "screenshots_question"
+os.makedirs(SCREENSHOT_DIR_Q, exist_ok=True)
+
+def take_screenshot(driver, name="screenshot", path_falg=1):
 
     try:
+        if path_falg==1:
+            SCREENSHOT_DIR = SCREENSHOT_DIR_ERROR
+        else:
+            SCREENSHOT_DIR = SCREENSHOT_DIR_Q
         """截图并保存"""
         timestamp = time.strftime("%Y%m%d-%H%M%S")
         filename = os.path.join(SCREENSHOT_DIR, f"{name}_{timestamp}.png")
