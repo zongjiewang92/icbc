@@ -136,6 +136,8 @@ def scrape_questions(step3, question_set, max_questions=25):
     question_data = []  # 存储所有题目信息
 
     for _ in range(max_questions):
+
+        now_question = None
         try:
             # **抓取题目文本**
             question_text = wait.until(
@@ -227,13 +229,15 @@ def scrape_questions(step3, question_set, max_questions=25):
 
                 print(f"✅ 正确答案: {correct_answer}")
 
-                # **存储题目、图片、答案**
-                question_data.append({
+                question = {
                     "question": question_text,
                     "options": options_data,
                     "image": image_url,
                     "correct_answer": correct_answer
-                })
+                }
+
+                # **存储题目、图片、答案**
+                question_data.append(question)
 
             # **点击 "下一个问题"**
             try:
@@ -255,17 +259,23 @@ def scrape_questions(step3, question_set, max_questions=25):
                     break
                 except Exception as e:
                     print(f"❌ 没有找到  完成 按钮:", e)
-                    take_screenshot(driver, "question_next_error")
+                    screenshot_name = "question_next_error"
+                    if now_question:
+                        screenshot_name = now_question
+                    take_screenshot(driver, screenshot_name)
                     break
 
 
             # break  # 退出循环
         except Exception as e:
             print("❌ 题目元素 抓取失败:", e)
-            take_screenshot(driver, "question_error")  # 发生异常时截图
+            screenshot_name = "question_error"
+            if now_question:
+                screenshot_name = now_question
+            take_screenshot(driver, screenshot_name)
             release_driver(driver, service)
 
-            return question_data  # 返回抓取的数据
+            # return question_data  # 返回抓取的数据
         
     release_driver(driver, service)
 
