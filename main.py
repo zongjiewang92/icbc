@@ -62,7 +62,7 @@ if __name__ == "__main__":
             print(f"✅ 当前总题目数: {len(all_questions)}")
 
             # 继续处理题目，保存到 Word
-            print(f"✅ 全部抓取完成，共 {len(all_questions)} 道题目")
+            print(f"✅ 第 {i+1} 次抓取..完整测试...，目前总共 {len(all_questions)} 道题目")
             save_to_word(all_questions)  # 保存到 Word
             # 存储抓取到的题目为 JSON 文件
             save_to_json(all_questions)  # 保存到 JSON 文件
@@ -84,13 +84,13 @@ if __name__ == "__main__":
             print(f"✅ 当前总题目数: {len(all_questions)}")
 
             # 继续处理题目，保存到 Word
-            print(f"✅ 全部抓取完成，共 {len(all_questions)} 道题目")
+            print(f"✅ 第 {i+1} 次抓取..标志测试...，目前总共 {len(all_questions)} 道题目")
             save_to_word(all_questions)  # 保存到 Word
             # 存储抓取到的题目为 JSON 文件
             save_to_json(all_questions)  # 保存到 JSON 文件
 
         else:
-            print(f"⚠️ 第 {i+1} 次抓取 没有新题目，跳过")
+            print(f"⚠️ 第 {i+1} 次抓取..标志测试... 没有新题目，跳过")
     
 
     # 存储抓取到的题目为 JSON 文件
