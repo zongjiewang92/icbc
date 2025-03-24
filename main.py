@@ -41,13 +41,13 @@ if __name__ == "__main__":
     all_questions = load_from_json()  # 尝试从 JSON 文件加载题目
 
 
-    # 这部分为补充，加载最近两个版本 start
-    json_filename = os.path.join("json", "questions_20250322.json")
-    all_questions2 = load_from_json(json_filename)  # 尝试从 JSON 文件加载题目
-    all_questions.extend(all_questions2)  # 合并题目
-    all_questions = remove_duplicates(all_questions)  # 去重
-    print(f"✅ 从 Json 文件加载完毕, 去重后，当前总题目数: {len(all_questions2)}")
-    # 这部分为补充  end
+    # # 这部分为补充，加载最近两个版本 start
+    # json_filename = os.path.join("json", "questions_20250322.json")
+    # all_questions2 = load_from_json(json_filename)  # 尝试从 JSON 文件加载题目
+    # all_questions.extend(all_questions2)  # 合并题目
+    # all_questions = remove_duplicates(all_questions)  # 去重
+    # print(f"✅ 从 Json 文件加载完毕, 去重后，当前总题目数: {len(all_questions2)}")
+    # # 这部分为补充  end
 
     question_set = get_question_set(all_questions)
 
