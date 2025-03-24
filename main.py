@@ -2,8 +2,6 @@
 from scraper import scrape_questions
 from save_to_file import save_to_word
 from save_json import save_to_json, load_from_json
-import json
-import os
 
 
 def remove_duplicates(questions):
@@ -52,7 +50,7 @@ if __name__ == "__main__":
     question_set = get_question_set(all_questions)
 
     # 进行抓取  完整测试
-    for i in range(50):  # 控制抓取次数，可以根据需要调整
+    for i in range(1):  # 控制抓取次数，可以根据需要调整
         print(f"\n========================================================================")
         print(f"🔄 第 {i+1} 次抓取..完整测试...")
         new_questions = scrape_questions(True, question_set)
@@ -74,7 +72,7 @@ if __name__ == "__main__":
 
     
     # 进行抓取  标志测试
-    for i in range(50):  # 控制抓取次数，可以根据需要调整
+    for i in range(1):  # 控制抓取次数，可以根据需要调整
         print(f"\n========================================================================")
         print(f"🔄 第 {i+1} 次抓取..标志测试...")
         new_questions = scrape_questions(False, question_set)
@@ -103,3 +101,5 @@ if __name__ == "__main__":
         save_to_word(all_questions)  # 保存到 Word
     else:
         print("❌ 没有获取到任何题目")
+
+
