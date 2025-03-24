@@ -270,7 +270,7 @@ def scrape_questions(step3, question_set, max_questions=25):
                     if buttons:
                         buttons[0].click()  # 找到按钮则点击
                         time.sleep(0.5)
-                        print(f"✅ 完成")
+                        print(f"✅ 点击 完成")
                     break
                 except Exception as e:
                     print(f"❌ 没有找到  完成 按钮:", e)
