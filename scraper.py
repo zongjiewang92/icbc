@@ -85,7 +85,7 @@ def scrape_questions(step3, question_set, max_questions=25):
         )
         simplified_chinese.click()
         print("✅ Step1.1:语言已选择：简体中文")
-        time.sleep(0.5)
+        time.sleep(1)
     except Exception as e:
         print("❌ Step1.1:语言选择失败:", e)
         take_screenshot(driver, "step1_error")  # 发生异常时截图
@@ -97,10 +97,10 @@ def scrape_questions(step3, question_set, max_questions=25):
             EC.element_to_be_clickable((By.XPATH, "//button[contains(text(), '确认')]"))
             )
         confirm_button.click()
-        print("✅ Step1.1:语言已选择：简体中文; 并点击 确认")
-        time.sleep(0.5)  # 进入下一个页面
+        print("✅ Step1.2:语言已选择：简体中文; 并点击 确认")
+        time.sleep(1)  # 进入下一个页面
     except Exception as e:
-        print("❌ Step1.1:语言已选择：简体中文; 点击 确认 失败", e)
+        print("❌ Step1.2:语言已选择：简体中文; 点击 确认 失败", e)
         take_screenshot(driver, "step1_error")  # 发生异常时截图
         release_driver(driver, service)
         return question_data
@@ -112,7 +112,7 @@ def scrape_questions(step3, question_set, max_questions=25):
         )
         practice_test_button.click()
         print("✅ Step2:进入页面2：笔试练习")
-        time.sleep(0.5)
+        time.sleep(1)
     except Exception as e:
         print("❌ Step2:进入笔试练习失败:", e)
         take_screenshot(driver, "step2_error")  # 发生异常时截图
@@ -140,7 +140,7 @@ def scrape_questions(step3, question_set, max_questions=25):
             )
             full_test_button.click()
             print("✅ Step3:进入页面3：标志测试")
-            time.sleep(0.5)
+            time.sleep(1)
         except Exception as e:
             print("❌ Step3:进入标志测试失败:", e)
             take_screenshot(driver, "step3_error")  # 发生异常时截图
@@ -220,7 +220,7 @@ def scrape_questions(step3, question_set, max_questions=25):
             )
             submit_button.click()
             print("✅ 点击 提交答案")
-            time.sleep(0.5)
+            time.sleep(1)
 
             now_question = question_text + "_" + image_url
             if now_question in question_set:
@@ -260,7 +260,7 @@ def scrape_questions(step3, question_set, max_questions=25):
                     EC.element_to_be_clickable((By.XPATH, "//button[contains(text(), '下一个问题')]"))
                 )
                 next_button.click()
-                time.sleep(0.5)
+                time.sleep(1)
                 print(f"✅ 下一个问题")
             except:
                 try:
@@ -269,7 +269,7 @@ def scrape_questions(step3, question_set, max_questions=25):
                     buttons = driver.find_elements(By.XPATH, "//button[contains(text(), '完成')]")
                     if buttons:
                         buttons[0].click()  # 找到按钮则点击
-                        time.sleep(0.5)
+                        time.sleep(1)
                         print(f"✅ 点击 完成")
                     break
                 except Exception as e:
