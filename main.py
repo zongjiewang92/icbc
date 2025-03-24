@@ -1,8 +1,7 @@
 # main.py
-from scraper_02 import scrape_questions
+from scraper import scrape_questions
 from save_to_file import save_to_word
 import json
-import gc
 
 
 def remove_duplicates(questions):
@@ -93,7 +92,7 @@ if __name__ == "__main__":
 
 
     # 进行抓取  标志测试
-    for i in range(4):  # 控制抓取次数，可以根据需要调整
+    for i in range(5):  # 控制抓取次数，可以根据需要调整
         print(f"🔄 第 {i+1} 次抓取..标志测试...")
         new_questions = scrape_questions(False, question_set)
 

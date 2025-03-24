@@ -1,15 +1,26 @@
 import os
+import time
 from datetime import datetime
 from docx import Document
 from docx.shared import Inches, Pt
 from docx.oxml import OxmlElement
 from docx.oxml.ns import qn
 
+
+TM = time.strftime("%Y%m%d-%H%M%S")
+# 创建结果目录
+FINAL_PATH = os.path.join("final_question", TM)
+os.makedirs(FINAL_PATH, exist_ok=True)
+
+
 def add_page_break(document):
     """添加分页符"""
     document.add_page_break()
 
-def save_to_word(question_data, filename="ICBC_题库.docx"):
+def save_to_word(question_data, filename_input="ICBC_题库.docx"):
+
+    filename = os.path.join(FINAL_PATH, filename_input)
+    
     """先存无图片题目，再存有图片题目，每页不固定题目数量"""
     document = Document()
     document.add_heading("ICBC 题库", level=1)

@@ -1,6 +1,8 @@
-ICBC_题库.docx
-questions.json
+__pycache__/
+final_question/
 images_download/
+json/
 screenshots_error/
 screenshots_question/
-__pycache__/
+ICBC_题库.docx
+questions.json

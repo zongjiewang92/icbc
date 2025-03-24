@@ -11,12 +11,13 @@ from webdriver_manager.chrome import ChromeDriverManager
 from selenium.common.exceptions import WebDriverException
 
 
+TM = time.strftime("%Y%m%d-%H%M%S")
 # 创建截图目录
-SCREENSHOT_DIR_ERROR = "screenshots_error"
+SCREENSHOT_DIR_ERROR = os.path.join("screenshots_error", TM)
 os.makedirs(SCREENSHOT_DIR_ERROR, exist_ok=True)
 
 # 创建截图目录
-SCREENSHOT_DIR_Q = "screenshots_question"
+SCREENSHOT_DIR_Q = os.path.join("screenshots_question", TM)
 os.makedirs(SCREENSHOT_DIR_Q, exist_ok=True)
 
 def take_screenshot(driver, name="screenshot", path_falg=1):
