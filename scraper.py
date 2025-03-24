@@ -289,6 +289,7 @@ def scrape_questions(step3, question_set, max_questions=25):
                 screenshot_name = now_question
             take_screenshot(driver, screenshot_name)
             release_driver(driver, service)
+            break
 
             # return question_data  # 返回抓取的数据
         
