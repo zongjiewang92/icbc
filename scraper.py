@@ -227,6 +227,7 @@ def scrape_questions(step3, question_set, max_questions=25):
                     if len(divs) >= 3:  # 确保有足够的 div
                         option_letter = divs[1].text.strip()  # 选项字母（位于第二个 div）
                         if option_letter.startswith("A"):
+                            time.sleep(0.1)
                             button.click()
                             button.click()
                             print("✅ 选择 A")
@@ -307,33 +308,44 @@ def scrape_questions(step3, question_set, max_questions=25):
                 )
                 next_button.click()
                 time.sleep(1)
-                print(f"\n✅ 下一个问题")
+                print(f"✅ 下一个问题 ===============================")
             except:
                 try:
                     print("✅ 测试结束，无 '下一个问题' 按钮")
                     # 尝试查找 "完成" 按钮
+
                     buttons = driver.find_elements(By.XPATH, "//button[contains(text(), '完成')]")
                     if buttons:
-                        buttons[0].click()  # 找到按钮则点击
-                        time.sleep(1)
-                        print(f"✅ 点击 完成")
+                        buttons[0].click()
+                        print("✅ 点击 完成")
+                    else:
+                        print("❌ 没有找到 完成 按钮")
                     break
+
+
+                    # buttons = driver.find_elements(By.XPATH, "//button[contains(text(), '完成')]")
+                    # if buttons:
+                    #     buttons[0].click()  # 找到按钮则点击
+                    #     time.sleep(1)
+                    #     print(f"✅ 点击 完成")
+                    # break
                 except Exception as e:
                     print(f"❌ 没有找到  完成 按钮:", e)
-                    screenshot_name = "question_next_error"
-                    if now_question:
-                        screenshot_name = now_question
-                    take_screenshot(driver, screenshot_name)
+                    release_driver(driver, service)
+                    # screenshot_name = "question_next_error"
+                    # if now_question:
+                    #     screenshot_name = now_question
+                    # take_screenshot(driver, screenshot_name)
                     break
 
 
             # break  # 退出循环
         except Exception as e:
             print("❌ 题目元素 抓取失败:", e)
-            screenshot_name = "question_error"
-            if now_question:
-                screenshot_name = now_question
-            take_screenshot(driver, screenshot_name)
+            # screenshot_name = "question_error"
+            # if now_question:
+            #     screenshot_name = now_question
+            # take_screenshot(driver, screenshot_name)
             release_driver(driver, service)
             break
 
