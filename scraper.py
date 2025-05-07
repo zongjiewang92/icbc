@@ -21,7 +21,7 @@ os.makedirs(IMAGES_DIR, exist_ok=True)
 # 初始化 WebDriver
 def init_driver(retries=3, delay=5):
     options = Options()
-    options.add_argument("--headless")  # 无头模式
+    # options.add_argument("--headless")  # 无头模式
     options.add_argument("--disable-gpu")  # 禁用 GPU 加速
     options.add_argument("--no-sandbox")  # 避免沙盒模式问题
     options.add_argument("--disable-dev-shm-usage")  # 避免 `/dev/shm` 内存不足
@@ -40,6 +40,8 @@ def init_driver(retries=3, delay=5):
             driver.set_window_size(2560, 1440)
             return driver, service  # 成功时返回 driver 实例
         except WebDriverException as e:
+            driver = None
+            service = None
             print(f"🚨 WebDriver 初始化失败，尝试重试 ({attempt + 1}/{retries})... 错误: {e}")
             time.sleep(delay)
     raise Exception("❌ WebDriver 初始化失败，已尝试多次。")
@@ -48,12 +50,14 @@ def release_driver(driver, service):
     try:
         if driver:
             driver.quit()
+            driver = None
             print(f"✅ Driver quit")
     except Exception as quit_error:
         print(f"❌ Driver quit 失败: {quit_error}")
     try:
         if service:
             service.stop()
+            service = None
             print(f"✅ Service close")
     except Exception as quit_error:
         print(f"❌ Service close 失败: {quit_error}")
@@ -147,6 +151,8 @@ def scrape_questions(step3, question_set, max_questions=25):
             release_driver(driver, service)
             return question_data
 
+    time.sleep(1)
+
     # **Step 4: 开始抓取测试题**
     question_data = []  # 存储所有题目信息
 
@@ -154,11 +160,22 @@ def scrape_questions(step3, question_set, max_questions=25):
 
         now_question = None
         try:
-            # **抓取题目文本**
-            question_text = wait.until(
-                EC.presence_of_element_located((By.XPATH, "//p[contains(@class, 'mb-2') and contains(@class, 'font-headings') and contains(@class, 'text-[18px]') and contains(@class, 'font-bold')]"))
-            ).text
-            print(f"\n📌 题目: {question_text}")
+
+            question_text = ""
+            try:
+                # **抓取题目文本**
+                question_text = wait.until(
+                    EC.presence_of_element_located((By.XPATH, "//p[contains(@class, 'mb-2') and contains(@class, 'font-headings') and contains(@class, 'text-[18px]') and contains(@class, 'font-bold')]"))
+                ).text
+                print(f"✅ 题目: {question_text}")
+            except:
+                print(f"❌ 题目 抓取失敗: {question_text}")
+                break
+
+            if not question_text:
+                print(f"❌ 题目 抓取失敗 跳出: {question_text}")
+                break
+
 
             # **抓取图片**
             image_url = ""
@@ -187,72 +204,101 @@ def scrape_questions(step3, question_set, max_questions=25):
                         print("⚠️ 图片 URL 无效")
             except Exception as e:
                 image_url = ""
-                print(f"📌 该题目无图片, 或者图片加载失败: {e}")
+                print(f"❌ 该题目无图片, 或者图片加载失败: {e}")
                 take_screenshot(driver, "image_error")  # 发生异常时截图
                 break
 
 
             # **抓取选项**
             options_data = []
-            option_buttons = driver.find_elements(By.TAG_NAME, "button")  # 找到所有按钮
-
-            for button in option_buttons:
-                divs = button.find_elements(By.TAG_NAME, "div")  # 找到按钮下所有 div
-                
-                if len(divs) >= 3:  # 确保有足够的 div
-                    option_letter = divs[1].text.strip()  # 选项字母（位于第二个 div）
-                    option_text = divs[2].text.strip()  # 选项内容（位于第三个 div）
+            try:
+                option_buttons = driver.find_elements(By.TAG_NAME, "button")  # 找到所有按钮
+                for button in option_buttons:
+                    divs = button.find_elements(By.TAG_NAME, "div")  # 找到按钮下所有 div
                     
-                    options_data.append({"letter": option_letter, "text": option_text})
+                    if len(divs) >= 3:  # 确保有足够的 div
+                        option_letter = divs[1].text.strip()  # 选项字母（位于第二个 div）
+                        option_text = divs[2].text.strip()  # 选项内容（位于第三个 div）
+                        options_data.append({"letter": option_letter, "text": option_text})
 
-            print(f"📌 选项: {options_data}")
+                for button in option_buttons:
+                    divs = button.find_elements(By.TAG_NAME, "div")  # 找到按钮下所有 div
+                    
+                    if len(divs) >= 3:  # 确保有足够的 div
+                        option_letter = divs[1].text.strip()  # 选项字母（位于第二个 div）
+                        if option_letter.startswith("A"):
+                            button.click()
+                            button.click()
+                            print("✅ 选择 A")
+                            break
 
-            # **点击 A 选项**
-            for btn in option_buttons:
-                if btn.text.startswith("A"):
-                    btn.click()
-                    print("✅ 选择 A")
-                    break
+                        
+                print(f"✅ 选项: {options_data}")
 
-            # **点击 "提交答案"**
-            submit_button = WebDriverWait(driver, 10).until(
-                EC.element_to_be_clickable((By.CSS_SELECTOR, "button[type='submit'].bg-purple"))
-            )
-            submit_button.click()
-            print("✅ 点击 提交答案")
-            time.sleep(1)
+                # **点击 A 选项**
+                # for button in option_buttons:
+                        # break
+                    
 
-            now_question = question_text + "_" + image_url
-            if now_question in question_set:
-                print(f"✅ 题目已经存在，不抓取答案， 跳过题目：{now_question}")
-            else:
-                print(f"✅ 题目不存在，取答案")
-                take_screenshot(driver, "question", 2)
-                # **获取正确答案**
-                try:
-                    # **查找 "正确" 标志，判断 A 是否正确**
-                    driver.find_element(By.XPATH, "//button[@value='A']//img[contains(@src, 'icon-checkmark.svg')]")
-                    correct_answer = "A"
-                except:
+            except:
+                print(f"❌ 选项 抓取失敗: {options_data}")
+                break
+            if not options_data:
+                print(f"❌ 选项 抓取失敗 跳出: {options_data}")
+                break
+
+            
+            try:
+                # **点击 "提交答案"**
+                submit_button = wait.until(
+                    EC.element_to_be_clickable((By.CSS_SELECTOR, "button[type='submit'].bg-purple"))
+                )
+                submit_button.click()
+                print("✅ 点击 提交答案")
+                time.sleep(1)  
+            except:
+                print(f"❌ 点击 提交答案 失敗")
+                break
+
+            
+            try:
+                now_question = question_text + "_" + image_url
+                if now_question in question_set:
+                    print(f"✅ 题目已经存在，不抓取答案， 跳过题目：{now_question}")
+                else:
+                    print(f"✅ 题目不存在，取答案")
+                    take_screenshot(driver, "question", 2)
+                    # **获取正确答案**
                     try:
-                        # **如果 A 错误，查找正确答案的选项字母**
-                        correct_answer = driver.find_element(By.XPATH, "//button[contains(@class, 'border-[#3adda2]')]//div[contains(@class, 'h-7') and contains(@class, 'w-7')]").text.strip()
-                    except Exception as e:
-                        print("❌ A 错误，同时没找到正确答案:", e)
-                        take_screenshot(driver, "question_error")  # 发生异常时截图
-                        break
+                        # **查找 "正确" 标志，判断 A 是否正确**
+                        driver.find_element(By.XPATH, "//button[@value='A']//img[contains(@src, 'icon-checkmark.svg')]")
+                        correct_answer = "A"
+                    except:
+                        try:
+                            # **如果 A 错误，查找正确答案的选项字母**
+                            correct_answer = driver.find_element(By.XPATH, "//button[contains(@class, 'border-[#3adda2]')]//div[contains(@class, 'h-7') and contains(@class, 'w-7')]").text.strip()
+                        except Exception as e:
+                            print("❌ A 错误，同时没找到正确答案:", e)
+                            take_screenshot(driver, "question_error")  # 发生异常时截图
+                            break
 
-                print(f"✅ 正确答案: {correct_answer}")
+                    print(f"✅ 正确答案: {correct_answer}")
 
-                question = {
-                    "question": question_text,
-                    "options": options_data,
-                    "image": image_url,
-                    "correct_answer": correct_answer
-                }
+                    question = {
+                        "question": question_text,
+                        "options": options_data,
+                        "image": image_url,
+                        "correct_answer": correct_answer
+                    }
 
-                # **存储题目、图片、答案**
-                question_data.append(question)
+                    print(f"✅ 抓取到的題目: \n{question}")
+                    # **存储题目、图片、答案**
+                    question_data.append(question)
+
+            except:
+                print(f"❌ 抓取正確答案以及保存完整題目 失敗")
+                break
+
 
             # **点击 "下一个问题"**
             try:
@@ -261,7 +307,7 @@ def scrape_questions(step3, question_set, max_questions=25):
                 )
                 next_button.click()
                 time.sleep(1)
-                print(f"✅ 下一个问题")
+                print(f"\n✅ 下一个问题")
             except:
                 try:
                     print("✅ 测试结束，无 '下一个问题' 按钮")
