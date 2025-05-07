@@ -8,9 +8,9 @@ from docx.oxml.ns import qn
 
 
 TM = time.strftime("%Y%m%d-%H%M%S")
-# 创建结果目录
+# 结果目录
 FINAL_PATH = os.path.join("final_question", TM)
-os.makedirs(FINAL_PATH, exist_ok=True)
+
 
 
 def add_page_break(document):
@@ -20,6 +20,8 @@ def add_page_break(document):
 def save_to_word(question_data, filename_input="ICBC_题库.docx"):
 
     filename_input=f"ICBC_题库_{TM}.docx"
+
+    os.makedirs(FINAL_PATH, exist_ok=True)
 
     filename = os.path.join(FINAL_PATH, filename_input)
     
